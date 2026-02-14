@@ -1,0 +1,71 @@
+{
+  "sections": [
+    {
+      "id": "s3",
+      "title": "S3 配置",
+      "fields": [
+        {
+          "id": "endpoint",
+          "type": "text",
+          "label": "Endpoint",
+          "default": "",
+          "placeholder": "https://s3.amazonaws.com",
+          "description": "S3 兼容服务地址（如腾讯 COS: https://cos.ap-guangzhou.myqcloud.com）",
+          "secret": true
+        },
+        {
+          "id": "region",
+          "type": "text",
+          "label": "Region",
+          "default": "us-east-1",
+          "placeholder": "us-east-1",
+          "description": "存储区域（如 ap-guangzhou、cn-hangzhou）"
+        },
+        {
+          "id": "bucket",
+          "type": "text",
+          "label": "Bucket",
+          "default": "",
+          "placeholder": "my-blog-images",
+          "description": "存储桶名称",
+          "secret": true
+        },
+        {
+          "id": "access_key",
+          "type": "text",
+          "label": "Access Key",
+          "default": "",
+          "placeholder": "AKID...",
+          "description": "访问密钥 ID",
+          "secret": true
+        },
+        {
+          "id": "secret_key",
+          "type": "text",
+          "label": "Secret Key",
+          "default": "",
+          "placeholder": "",
+          "description": "访问密钥 Secret",
+          "secret": true
+        },
+        {
+          "id": "path_prefix",
+          "type": "text",
+          "label": "路径前缀",
+          "default": "blog/images/",
+          "placeholder": "blog/images/",
+          "description": "上传路径前缀（如 blog/images/）"
+        },
+        {
+          "id": "custom_domain",
+          "type": "text",
+          "label": "自定义域名",
+          "default": "",
+          "placeholder": "https://cdn.example.com",
+          "description": "CDN 或自定义域名（留空则使用默认 S3 URL）",
+          "secret": true
+        }
+      ]
+    }
+  ]
+}

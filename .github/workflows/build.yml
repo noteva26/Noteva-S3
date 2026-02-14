@@ -1,0 +1,40 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Build WASM
+        working-directory: wasm-src
+        run: cargo build --release --target wasm32-unknown-unknown
+
+      - name: Copy WASM binary
+        run: cp wasm-src/target/wasm32-unknown-unknown/release/s3_image_upload.wasm backend.wasm
+
+      - name: Package
+        run: |
+          zip -r s3-image-upload.zip \
+            plugin.json \
+            settings.json \
+            backend.wasm
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: s3-image-upload.zip
+          generate_release_notes: true
