@@ -1,7 +1,7 @@
 {
   "id": "s3-image-upload",
   "name": "S3 图床",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "将图片上传到 S3 兼容存储（AWS S3、腾讯 COS、阿里 OSS、Cloudflare R2、七牛等）",
   "author": "Noteva Team",
   "license": "MIT",
